@@ -13,7 +13,27 @@ require("lazy").setup({
   },
   { import = "community" },
   { import = "plugins" },
-} --[[@as LazySpec]], {
+},
+  {
+  "neo-tree.nvim",
+  opts = {
+    filesystem = {
+      filtered_items = {
+        visible = false, -- hide filtered items on open
+        hide_gitignored = true,
+        hide_dotfiles = false,
+        hide_by_name = {
+          ".github",
+          ".gitignore",
+          "package-lock.json",
+          ".changeset",
+          ".prettierrc.json",
+        },
+        never_show = { ".git" },
+      },
+    },
+  },
+}--[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
   install = { colorscheme = { "astrotheme", "habamax" } },
   ui = { backdrop = 100 },
